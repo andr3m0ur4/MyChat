@@ -1,8 +1,12 @@
-<?php 
-ini_set('default_charset', 'UTF-8');
-include("include/connection.php");
+<?php
 
-	if (isset($_POST['sign_up'])){
+	session_start();
+
+	ini_set('default_charset', 'UTF-8');
+
+	include_once "./include/connection.php";
+
+	if (isset($_POST['sign_up'])) {
 		$name = htmlspecialchars(mysqli_real_escape_string($con, $_POST['user_name']));
 		$pass = htmlspecialchars(mysqli_real_escape_string($con, $_POST['user_password']));
 		$email = htmlspecialchars(mysqli_real_escape_string($con, $_POST['user_email']));
@@ -10,38 +14,47 @@ include("include/connection.php");
 		$gender = htmlspecialchars(mysqli_real_escape_string($con, $_POST['user_gender']));
 		$rand = rand(1, 2);
 
-		if ($name == ''){
-			echo "<script>alert('Não podemos verificar seu nome')</script>";
+		if ($name == '') {
+			header('Location: ./signup.php?error=1');
+			exit;
 		}
+
+		if ($email == '') {
+			header('Location: ./signup.php?error=2');
+			exit;
+		}
+
 		if (strlen($pass) < 8){
-			echo "<script>alert('Senha deve ter no mínimo 8 caracteres')</script>";
-			exit();
+			header('Location: ./signup.php?error=3');
+			exit;
 		}
 
 		$check_email = "SELECT * FROM users WHERE user_email = '$email'";
 		$run_email = mysqli_query($con, $check_email);
 		$check = mysqli_num_rows($run_email);
+
 		if ($check == 1) {
-			echo "<script>alert('Email já existe, por favor tente novamente!')</script>";
-			echo "<script>window.open('signup.php', '_self')</script>";
-			exit();
+			header('Location: ./signup.php?error=4');
+			exit;
 		}
 
 		if ($rand == 1) {
-			$profile_pic = "images/codingcafe1.png";
-		}else if ($rand == 2) {
-			$profile_pic = "images/codingcafe2.png";
+			$profile_pic = "./images/codingcafe1.png";
+		} else if ($rand == 2) {
+			$profile_pic = "./images/codingcafe2.png";
 		}
 
-		$insert = "INSERT INTO users (user_name, user_pass, user_email, user_profile, user_city, user_gender) VALUES ('$name', '$pass', '$email', '$profile_pic', '$city', '$gender')";
+		$insert = "
+			INSERT INTO users (user_name, user_pass, user_email, user_profile, user_city, user_gender) 
+			VALUES ('$name', '$pass', '$email', '$profile_pic', '$city', '$gender')
+		";
+
 		$query = mysqli_query($con, $insert);
 
 		if ($query) {
-			echo "<script>alert('Parabéns $name, sua conta foi criada com sucesso')</script>";
-			echo "<script>window.open('signin.php', '_self')</script>";
-		}else{
-			echo "<script>alert('Registro falhou, tente novamente!')</script>";
-			echo "<script>window.open('signup.php', '_self')</script>";
+			header("Location: ./signin.php?success=1&name=$name");
+		} else {
+			header('Location: ./signup.php?error=5');
 		}
 	}
- ?>
+ 

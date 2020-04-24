@@ -4,10 +4,11 @@
 		<title>Login em sua conta</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE-edge">
-		<meta name="viewport" content="width=devide-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Courgette|Pacifico:400,700">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="./css/signin.css">
+		<script src="./js/signin.js" charset="UTF-8"></script>
 	</head>
 	<body>
 
@@ -46,6 +47,23 @@
 			<div class="text-center small text-white">
 				Não possui uma conta? <a href="./signup.php">Crie uma</a>
 			</div>
+		</div>
+
+		<div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		  	<div class="modal-dialog modal-dialog-centered modal-sm">
+			    <div class="modal-content">
+			    	<div class="modal-header">
+			          	<h4 class="modal-title">Mensagem de Sucesso</h4>
+			          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+			        </div>
+			    	<div class="modal-body">
+				        <p class="text-success" id="msg"></p>
+				    </div>
+				    <div class="modal-footer">
+			          	<button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+			        </div>
+			    </div>
+		  	</div>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
