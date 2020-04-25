@@ -51,6 +51,8 @@
 			}
 		}
 
+		$title = 'Configurações da Conta';
+
 		include_once "./include/header.php";
 		include_once './templates/account_settings_template.php';
 	}
