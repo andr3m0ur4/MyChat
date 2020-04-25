@@ -23,6 +23,7 @@
 			$row = mysqli_fetch_assoc($run_user);
 
 			$user_name = $row['user_name'];
+			$_SESSION['user_name'] = $user_name;
 
 			header("Location: ./home.php?user_name=$user_name");
 		} else {
