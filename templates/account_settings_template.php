@@ -96,12 +96,12 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
+						<h5>Qual é o Nome do seu Melhor Amigo da Escola?</h5>
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 
 					<div class="modal-body">
-						<form action="./recovery.php?id=<?= $user_id ?>" method="post" id="f">
-							<strong>Qual é o Nome do seu Melhor Amigo da Escola?</strong>
+						<form action="./account_settings.php?id=<?= $user_id ?>" method="post" id="f">
 							<textarea class="form-control mb-4" cols="83" rows="4" name="content" placeholder="Alguém"></textarea>
 							<button class="btn btn-secondary mb-5" type="submit" name="sub">Enviar</button>
 							<p class="mb-5">
@@ -126,7 +126,7 @@
 								<?php else : ?>
 									<script>
 										alert('Erro enquanto Atualizando Informação.')
-										window.open('account_settings.php', '_self')
+										window.open('./account_settings.php', '_self')
 									</script>
 								<?php endif ?>
 							<?php endif ?>

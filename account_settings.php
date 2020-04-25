@@ -18,6 +18,7 @@
 		$user_profile = $row['user_profile'];
 		$user_city = $row['user_city'];
 		$user_gender = $row['user_gender'];
+		$user_id = $row['user_id'];
 
 		if (isset($_POST['sub'])) {
 			$content = htmlspecialchars($_POST['content']);
