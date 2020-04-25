@@ -1,0 +1,14 @@
+.configuration {
+	color: white !important;
+	text-decoration: none !important;
+	font-size: 20px;
+}
+
+a.btn-secondary {
+	text-decoration: none !important;
+	font-size: 15px;
+}
+
+#myModal button.btn-secondary {
+	width: 100px;
+}
