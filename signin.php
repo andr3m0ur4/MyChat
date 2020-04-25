@@ -53,7 +53,7 @@
 		  	<div class="modal-dialog modal-dialog-centered modal-sm">
 			    <div class="modal-content">
 			    	<div class="modal-header">
-			          	<h4 class="modal-title">Mensagem de Sucesso</h4>
+			          	<h4 class="modal-title">Usuário cadastrado!</h4>
 			          	<button type="button" class="close" data-dismiss="modal">&times;</button>
 			        </div>
 			    	<div class="modal-body">

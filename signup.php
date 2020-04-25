@@ -68,9 +68,7 @@
 					<button type="submit" class="btn btn-primary btn-block btn-lg" name="sign_up">
 						Cadastrar
 					</button>
-				</div>
-
-				<?php include("signup_user.php"); ?>			
+				</div>			
 			</form>
 
 			<div class="text-center small gray">
@@ -81,7 +79,7 @@
 		<div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		  	<div class="modal-dialog modal-dialog-centered modal-sm">
 			    <div class="modal-content">
-			    	<div class="modal-header">
+			    	<div class="modal-header text-danger">
 			          	<h4 class="modal-title">Mensagem de Erro</h4>
 			          	<button type="button" class="close" data-dismiss="modal">&times;</button>
 			        </div>
