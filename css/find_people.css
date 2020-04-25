@@ -1,22 +1,14 @@
-body{
+body {
 	overflow-x: hidden;
 }
-.card{
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	max-width: 400px;
-	margin: auto;
-	text-align: center;
-	font-family: arial;
-}
-.card img{
-	height: 200px;
-}
-.title{
-	color: grey;
-	font-size: 18px;
+
+.configuration {
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
 }
 
-button{
+button {
 	border: none;
 	outline: 0;
 	display: inline-block;
@@ -28,15 +20,22 @@ button{
 	width: 100%;
 	font-size: 18px;
 }
-a{
+
+a {
 	text-decoration: none;
 	font-size: 22px;
 	color: black;
 }
-button:hover, a:hover{
+
+button:hover, a:hover {
 	opacity: 0.7;
 }
-form.search_form input[type=text]{
+
+form.search_form {
+	min-width: 400px;
+}
+
+form.search_form input[type=text] {
 	padding: 10px;
 	font-size: 17px;
 	border-radius: 4px;
@@ -46,9 +45,13 @@ form.search_form input[type=text]{
 	color: white;
 	background: #343a40 !important;
 }
-form.search_form button{
-	float: left;
+
+form.search_form .input-group-append {
 	width: 20%;
+}
+
+form.search_form button {
+	float: left;
 	padding: 10px;
 	font-size: 17px;
 	border: 1px solid #343a40 !important;
@@ -56,11 +59,30 @@ form.search_form button{
 	cursor: pointer;
 	background-color: #343a40 !important;
 }
-form.search_form button:hover{
+
+form.search_form button:hover {
 	background: #343a40 !important;
 }
-form.search_form:after{
+
+form.search_form:after {
 	content: "";
 	clear: both;
 	display: table;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 400px;
+	margin: auto;
+	text-align: center;
+	font-family: Arial;
+}
+
+.card img {
+	height: 200px;
+}
+
+.title {
+	color: grey;
+	font-size: 18px;
 }

@@ -29,6 +29,9 @@
 
 			$username = $row_user['user_name'];
 			$user_profile_image = $row_user['user_profile'];
+		} else {
+			header("Location: ./home.php?user_name=$user_name");
+			exit;
 		}
 
 		submit_msg($con, $user_name, $username);
@@ -67,26 +70,25 @@
 		include_once './templates/home_template.php';
 	}
 
-function submit_msg($con, $user_name, $username){
-	if (isset($_POST['submit'])) {
-		$msg = htmlspecialchars($_POST['msg_content']);
+	function submit_msg($con, $user_name, $username) {
+		if (isset($_POST['submit'])) {
+			$msg = htmlspecialchars($_POST['msg_content']);
 
-		if ($msg == ""){
-			echo "
-				<div class='alert alert-danger'>
-					<strong><center>A mensagem foi incapaz de ser enviada</center></strong>
-				</div>
-			";
-		}else if (strlen($msg) > 100) {
-			echo "
-				<div class='alert alert-danger'>
-					<strong><center>A mensagem é muito longa. Utilize somente 100 caracteres</center></strong>
-				</div>
-			";
-		}else{
-			$insert = "INSERT INTO users_chat (sender_username, receiver_username, msg_content, msg_status, msg_date) VALUES ('$user_name', '$username', '$msg', 'unread', NOW())";
-			$run_insert = mysqli_query($con, $insert);
+			if ($msg == ""){
+				echo "
+					<div class='alert alert-danger'>
+						<strong><center>A mensagem foi incapaz de ser enviada</center></strong>
+					</div>
+				";
+			}else if (strlen($msg) > 100) {
+				echo "
+					<div class='alert alert-danger'>
+						<strong><center>A mensagem é muito longa. Utilize somente 100 caracteres</center></strong>
+					</div>
+				";
+			}else{
+				$insert = "INSERT INTO users_chat (sender_username, receiver_username, msg_content, msg_status, msg_date) VALUES ('$user_name', '$username', '$msg', 'unread', NOW())";
+				$run_insert = mysqli_query($con, $insert);
+			}
 		}
 	}
-}
-?>
